@@ -1,19 +1,24 @@
-## actividad 1
 import pandas as pd
-# Your code goes here. Create a dataframe matching the above diagram and assign it to the variable fruits.
-fruits = pd.DataFrame({'Apples': [30], 'Bananas': [21]})
+reviews = pd.read_csv("/home/christian/Development/Inteligencia Artificial/Cursos/Pandas/winemag-data-130k-v2.csv", index_col=0)
+pd.set_option('display.max_rows', 5)
 
-#Actividad 2
-fruit_sales = pd.DataFrame({'Apples': [35,41],
-                            'Bananas': [21,34]},
-                            index=['2017 Sales', '2018 Sales'])
+print(reviews.country)
 
-#Actividad 3
-ingredients = pd.Series(['4 cups', '1 cup', '2 large', '1 can'], index=['Flour', 'Milk', 'Eggs', "Spam"], name='Dinner')
+print(reviews['country'])
 
-#Actividad 4
-reviews = pd.read_csv("winemag-data_first150k.csv", index_col=0)
+print(reviews.iloc[0])
 
-#Actividad 5
-animals = pd.DataFrame({'Cows': [12, 20], 'Goats': [22, 19]}, index=['Year 1', 'Year 2'])
-animals.to_csv("cows_and_goats.csv")
+print(reviews.iloc[:, 0])
+
+print(reviews.iloc[1:3, 0])
+
+
+print(reviews.loc[:, ['taster_name', 'taster_twitter_handle', 'points']])
+
+print(reviews.country == 'Italy')
+
+print(reviews.loc[reviews.country == 'Italy'])
+
+print(reviews.loc[(reviews.country == 'Italy') & (reviews.points >= 90)]) #or |
+
+print(reviews.loc[reviews.country.isin(['Italy', 'France'])])

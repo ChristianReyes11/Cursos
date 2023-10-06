@@ -1,39 +1,19 @@
 import pandas as pd
-reviews = pd.read_csv("winemag-data-130k-v2.csv", index_col=0)
-pd.set_option("display.max_rows", 5)
+pd.set_option('display.max_rows', 5)
+reviews = pd.read_csv("Pandas/winemag-data-130k-v2.csv", index_col=0)
 
 #actividad 1
-print(desc = reviews.description)
+print(reviews.rename(columns={'points': 'score'}))
 
-#actividad 2
-print(first_description = reviews.description.iloc[0])
+print(reviews.rename(index={0: 'firstEntry', 1: 'secondEntry'}))
 
-#actividad 3
-print(first_row = first_row = reviews.iloc[0])
+print(reviews.rename_axis("wines", axis='rows').rename_axis("fields", axis='columns'))
 
-#actividad 4
-print(first_descriptions = reviews.description.iloc[:10])
+#canadian_youtube = pd.read_csv("../input/youtube-new/CAvideos.csv")
+#british_youtube = pd.read_csv("../input/youtube-new/GBvideos.csv")
+#print(pd.concat([canadian_youtube, british_youtube]))
 
-#actividad 5
-print(sample_reviews = reviews.loc[[1, 2, 3, 5, 8]])
+#left = canadian_youtube.set_index(['title', 'trending_date'])
+#right = british_youtube.set_index(['title', 'trending_date'])
 
-#actividad 6
-cols = ['country', 'province', 'region_1', 'region_2']
-indices = [0, 1, 10, 100]
-df = reviews.loc[indices, cols]
-print(df)
-
-#actividad 7
-cols_idx = [0, 11]
-df = reviews.iloc[:100, cols_idx]
-print(df)
-
-#actividad 8
-print(italian_wines = reviews[reviews.country == 'Italy'])
-
-#actividad 9
-print(top_oceania_wines = reviews.loc[
-    (reviews.country.isin(['Australia', 'New Zealand']))
-    & (reviews.points >= 95)
-]
-)
+#print(left.join(right, lsuffix='_CAN', rsuffix='_UK'))

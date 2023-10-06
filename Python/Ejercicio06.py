@@ -1,25 +1,17 @@
-#-----------------------------------------------    1     -----------------------------------------------
+# Ejercicio 1
+print("ejercicio 1------------")
 def is_valid_zip(zip_code):
-    """Returns whether the input string is a valid (5 digit) zip code
-    """
+
     print(zip_code)
     if(len(zip_code)==5 and zip_code.isdigit()): 
         return True
     else:
         return False
     pass
-#-----------------------------------------------    2     -----------------------------------------------
- def word_search(doc_list, keyword):
-    """
-    Takes a list of documents (each document is a string) and a keyword. 
-    Returns list of the index values into the original list for all documents 
-    containing the keyword.
 
-    Example:
-    doc_list = ["The Learn Python Challenge Casino.", "They bought a car", "Casinoville"]
-    >>> word_search(doc_list, 'casino')
-    >>> [0]
-    """
+# Ejercicio 2
+print("ejercicio 2------------")
+def word_search(doc_list, keyword):
     lista=[]
     i=0
     doc_list
@@ -41,7 +33,10 @@ def is_valid_zip(zip_code):
     return lista
     
     pass
-#-----------------------------------------------    3     -----------------------------------------------
+
+# Ejercicio 3
+print("ejercicio 3------------")
+def word_search(doc_list, keyword):
     keyword_to_indices = {}
     for keyword in keywords:
         keyword_to_indices[keyword] = word_search(doc_list, keyword)
